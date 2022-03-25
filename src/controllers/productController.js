@@ -40,6 +40,20 @@ const productCtr = {
     }
   },
 
+  getProductsByCategory: async(req, res) => {
+    try {
+      const { categoryId } = req.body
+      const products = await Products.find({
+        categoryId: categoryId
+      }).populate('categoryId', 'name')
+
+      res.json(products)
+    } catch(e) {
+      // statements
+      return res.status(500).json({msg: err.message})
+    }
+  },
+
   addProduct: async (req, res) => {
     try {
       const { title, price, description, image, categoryId } = req.body;
