@@ -4,7 +4,7 @@ const productCtr =  require('../controllers/productController')
 const router = express.Router()
 
 router.get('/products', productCtr.getProducts)
-router.get('/products/category', productCtr.getProductsByCategory)
+router.get('/products/category/:categoryId', productCtr.getProductsByCategory)
 
 router.post('/products', productCtr.addProduct)
 

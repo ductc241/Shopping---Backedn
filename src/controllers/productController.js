@@ -42,7 +42,8 @@ const productCtr = {
 
   getProductsByCategory: async(req, res) => {
     try {
-      const { categoryId } = req.body
+      const categoryId = req.params.categoryId
+      
       const products = await Products.find({
         categoryId: categoryId
       }).populate('categoryId', 'name')
