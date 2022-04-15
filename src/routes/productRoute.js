@@ -14,6 +14,8 @@ router.get('/products/:id', productCtr.getProduct)
 router.put('/products/:id', productCtr.updateProduct)
 router.delete('/products/:id', productCtr.deleteProduct)
 
+router.get('/products/search/:keyword', productCtr.search)
+
 
 
 

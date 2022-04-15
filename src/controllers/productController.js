@@ -100,6 +100,20 @@ const productCtr = {
     }
   },
 
+  search: async (req, res) => {
+    try {
+      const keyword = req.params.keyword
+      const product = await Products.find({title: {$regex: keyword, $options: 'i'}})
+
+      res.json(product)
+    } catch(e) {
+      res.status(500).json({
+        msg: 'Server Error'
+      })
+      console.log(e);
+    }
+  },
+
 
   findArray: async (req, res) => {
     try {

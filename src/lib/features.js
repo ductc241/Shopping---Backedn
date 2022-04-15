@@ -24,7 +24,7 @@ function APIfeatures(query, queryString){
       const search = this.queryString.search;
       if(search){
         this.query = this.query.find({
-          $text: { $search: search }
+          title: {$regex: search, $options: 'i'}
         })
       }else{
         this.query = this.query.find()
